@@ -24,7 +24,7 @@ class __I2CDev(object):
                 atexit.register(self._close)
 
     def _close(self):
-        self._os_close(self._dev)
+        pass
 
     def write(self, data):
         os.write(self._dev, data)

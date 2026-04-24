@@ -64,7 +64,7 @@ class Coordinates(object):
         """ Find a maximum value of all values.
         :return: maximum value.
         """
-        return max(self.x, self.y, self.z, self.e)
+        pass
 
     # build in function implementation
     def __add__(self, other):

@@ -37,7 +37,7 @@ class Heater(threading.Thread):
         """ Return target temperature which should be reached.
         :return:
         """
-        return self._pid.target_value()
+        pass
 
     def is_fixed(self):
         """ Check if target value is reached and PID maintains this value.

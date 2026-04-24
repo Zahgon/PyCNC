@@ -74,7 +74,7 @@ class Pid(object):
         """ Get target value.
         :return: value.
         """
-        return self._target_value
+        pass
 
 
 # for test purpose, see details in corresponding test file

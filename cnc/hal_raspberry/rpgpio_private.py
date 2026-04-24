@@ -122,18 +122,15 @@ class PhysicalMemory(object):
         atexit.register(self.cleanup)
 
     def cleanup(self):
-        self._memmap.close()
+        pass
 
     @staticmethod
     def _open_dev(name):
-        fd = os.open(name, os.O_SYNC | os.O_RDWR)
-        if fd < 0:
-            raise IOError("Failed to open " + name)
-        return fd
+        pass
 
     @staticmethod
     def _close_dev(fd):
-        os.close(fd)
+        pass
 
     def write_int(self, address, int_value):
         ctypes.c_uint32.from_buffer(self._memmap, address).value = int_value
@@ -176,21 +173,10 @@ class CMAPhysicalMemory(PhysicalMemory):
     def free(self):
         """Release and free allocated memory
         """
-        self._send_data(0x3000e, [self._handle])  # unlock memory
-        self._send_data(0x3000f, [self._handle])  # free memory
-        self._close_dev(self._vcio_fd)
+        pass
 
     def _send_data(self, request, args):
-        data = array.array('I')
-        data.append(24 + 4 * len(args))  # total size
-        data.append(0)                   # process request
-        data.append(request)             # request id
-        data.append(4 * len(args))       # size of the buffer
-        data.append(4 * len(args))       # size of the data
-        data.extend(args)                # arguments
-        data.append(0)                   # end mark
-        fcntl.ioctl(self._vcio_fd, self.IOCTL_MBOX_PROPERTY, data, True)
-        return data[5]
+        pass
 
     def get_bus_address(self):
         return self._bus_memory

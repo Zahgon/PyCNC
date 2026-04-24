@@ -279,30 +279,28 @@ class GMachine(object):
             tests only.
             :return current plane.
         """
-        return self._plane
+        pass
 
     def fan_state(self):
         """ Check if fan is on.
             :return True if fan is on, False otherwise.
         """
-        return self._fan_state
+        pass
 
     def __get_target_temperature(self, heater):
-        if heater not in self._heaters:
-            return 0
-        return self._heaters[heater].target_temperature()
+        pass
 
     def extruder_target_temperature(self):
         """ Return desired extruder temperature.
             :return Temperature in Celsius, 0 if disabled.
         """
-        return self.__get_target_temperature(HEATER_EXTRUDER)
+        pass
 
     def bed_target_temperature(self):
         """ Return desired bed temperature.
             :return Temperature in Celsius, 0 if disabled.
         """
-        return self.__get_target_temperature(HEATER_BED)
+        pass
 
     def do_command(self, gcode):
         """ Perform action.

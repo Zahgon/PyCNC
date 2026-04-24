@@ -54,8 +54,7 @@ class GPIO(object):
         """ Set pin to HIGH state.
         :param pin: pin number.
         """
-        address = 4 * int(pin / 32) + GPIO_SET_OFFSET
-        self._mem.write_int(address, 1 << (pin % 32))
+        pass
 
     def clear(self, pin):
         """ Set pin to LOW state.
@@ -291,19 +290,7 @@ class DMAPWM(DMAProto):
         self._gpio = PhysicalMemory(PERI_BASE + GPIO_REGISTER_BASE)
 
     def __add_control_block(self, address, offset):
-        ba = self._phys_memory.get_bus_address() + address
-        data = (
-            DMA_TI_NO_WIDE_BURSTS | DMA_TI_WAIT_RESP
-            | DMA_TI_DEST_INC | DMA_TI_SRC_INC,  # info
-            ba + self._DMA_DATA_OFFSET,  # source, use padding for storing data
-            PHYSICAL_GPIO_BUS + offset,  # destination
-            4,  # length
-            0,  # stride
-            ba + self._DMA_CONTROL_BLOCK_SIZE,  # next control block
-            0,  # padding, uses as data storage
-            0  # padding
-        )
-        self._phys_memory.write(address, "8I", data)
+        pass
 
     def add_pin(self, pin, duty_cycle):
         """ Add pin to PMW with specified duty cycle.

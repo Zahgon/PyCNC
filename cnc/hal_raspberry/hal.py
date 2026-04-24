@@ -73,20 +73,14 @@ def extruder_heater_control(percent):
     """ Extruder heater control.
     :param percent: heater power in percent 0..100. 0 turns heater off.
     """
-    if percent > 0:
-        pwm.add_pin(EXTRUDER_HEATER_PIN, percent)
-    else:
-        pwm.remove_pin(EXTRUDER_HEATER_PIN)
+    pass
 
 
 def bed_heater_control(percent):
     """ Hot bed heater control.
     :param percent: heater power in percent 0..100. 0 turns heater off.
     """
-    if percent > 0:
-        pwm.add_pin(BED_HEATER_PIN, percent)
-    else:
-        pwm.remove_pin(BED_HEATER_PIN)
+    pass
 
 
 def get_extruder_temperature():
